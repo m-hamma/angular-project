@@ -7,11 +7,12 @@ import { PaysComponent } from './pays/pays.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { FormsModule } from '@angular/forms';
 import { DetailComponent } from './detail/detail.component';
+import { PaysDirective } from './directives/exemple/pays.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PaysComponent,
+    PaysDirective,
   ],
   imports: [
     BrowserModule,
@@ -19,6 +20,7 @@ import { DetailComponent } from './detail/detail.component';
     FormsModule,
     HeroesComponent,
     DetailComponent,
+    PaysComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

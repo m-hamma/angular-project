@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Hero } from '../interfaces/hero';
 import {HEROES} from '../mock-heroes';
 import {DetailComponent} from '../detail/detail.component';
+import {PaysComponent} from '../pays/pays.component';
 import {FormsModule} from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -19,7 +20,9 @@ import {
   styleUrls: ['./heroes.component.scss'],
   imports: [
     NgIf,
-    NgFor,DetailComponent,
+    NgFor,
+    DetailComponent,
+    PaysComponent,
 
   ],
 })
