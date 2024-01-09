@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Output, EventEmitter } from '@angular/core';
 import { Hero } from '../interfaces/hero';
 import {HEROES} from '../mock-heroes';
 import {DetailComponent} from '../detail/detail.component';
@@ -30,6 +30,7 @@ export class HeroesComponent {
 constructor(private router: Router) {}
   heroes = HEROES;
   selected:any;
+  result: number = 0;
 
   selectedHero?: Hero;
   onSelect(hero: Hero): void {
@@ -37,5 +38,7 @@ constructor(private router: Router) {}
     this.selectedHero.selected = !this.selectedHero.selected;
     //this.router.navigateByUrl("/detail");
   }
-
+  multiplicate(val: number) {
+    this.result = val * 2;
+  }
 }

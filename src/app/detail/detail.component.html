@@ -1,8 +1,11 @@
-<div class="center">
+<div class="center" >
 
 
-  <h2>{{selectedHero.name | uppercase}} Details</h2>
-  <div>id: {{selectedHero.id}} </div>
+  <h2>{{selectedHero?.name | uppercase}} Details</h2>
+  <div>id: {{selectedHero?.id}} </div>
   <label for="hero-name">Hero name: </label>
+
   <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name">
+  <p>Initial : {{n}}</p>
+  <button (click)="up()">Up</button>
 </div>

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter  } from '@angular/core';
 import { Hero } from '../interfaces/hero';
 import {FormsModule} from '@angular/forms';
 import {
@@ -18,4 +18,10 @@ standalone: true,
 })
 export class DetailComponent {
   @Input() selectedHero: Hero;
+  n: number = 0;
+  @Output() numberChange: EventEmitter<number> = new EventEmitter();
+  up() {
+    this.n++;
+    this.numberChange.emit(this.n);
+  }
 }

@@ -15,11 +15,12 @@
 
     </div>
     <div>
-      <app-detail [selectedHero]="selectedHero"></app-detail>
+      <app-detail (numberChange)="multiplicate($event)" [selectedHero]="selectedHero"></app-detail>
     </div>
-    <div>
+    <div appPays color="orange">
       <app-pays [pays]="selectedHero?.pays"></app-pays>
     </div>
+    <h2>Changé : {{result}}</h2>
   </div>
 </ul>
 
