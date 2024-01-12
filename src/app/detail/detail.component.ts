@@ -22,6 +22,6 @@ export class DetailComponent {
   @Output() numberChange: EventEmitter<number> = new EventEmitter();
   up() {
     this.n++;
-    this.numberChange.emit(this.n);
+    this.numberChange?.emit(this.n);
   }
 }

@@ -2,10 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {DetailComponent} from "./detail/detail.component";
 import {AppComponent} from "./app.component";
+import { AuthGuard } from './_helpers/auth.guard';
+
+const accountModule = () => import('./account/account.module').then(x => x.AccountModule);
 
 const routes: Routes = [
-          { path: '', component: AppComponent, },
-          { path: 'detail', component: DetailComponent },
+          { path: '', component: AppComponent,  canActivate: [AuthGuard]},
+          { path: 'detail', component: DetailComponent, canActivate: [AuthGuard] },
+           { path: 'account', loadChildren: accountModule },
       ];
 
 @NgModule({

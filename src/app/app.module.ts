@@ -8,7 +8,7 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { FormsModule } from '@angular/forms';
 import { DetailComponent } from './detail/detail.component';
 import { PaysDirective } from './directives/exemple/pays.directive';
-
+import { CountryService } from './country.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +22,7 @@ import { PaysDirective } from './directives/exemple/pays.directive';
     DetailComponent,
     PaysComponent,
   ],
-  providers: [],
+  providers: [CountryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

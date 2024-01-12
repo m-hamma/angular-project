@@ -1,4 +1,18 @@
 <div class="center" appPays>
 <h2>Pays : </h2>
-  <input id="pays-name" [(ngModel)]="pays.name" placeholder="pays">
+  <input id="pays-name" [(ngModel)]="pays" type="hidden" placeholder="pays">
+  <span class="name">{{pays?.name}}</span>
+  <ul>
+  <span class="badge">List Pays :</span>
+  <li *ngFor="let country of countries">
+
+
+    <button type="button" (click)="onSelect(country)">
+
+      <span class="name">{{country.name}}</span>
+    </button>
+
+
+  </li>
+</ul>
 </div>
