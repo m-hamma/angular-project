@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import {DetailComponent} from "./detail/detail.component";
 import {AppComponent} from "./app.component";
 import { AuthGuard } from './_helpers/auth.guard';
@@ -10,6 +10,7 @@ const routes: Routes = [
           { path: '', component: AppComponent,  canActivate: [AuthGuard]},
           { path: 'detail', component: DetailComponent, canActivate: [AuthGuard] },
            { path: 'account', loadChildren: accountModule },
+           { path: '**', redirectTo: '' }
       ];
 
 @NgModule({

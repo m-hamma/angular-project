@@ -30,6 +30,13 @@ setCountries() {
     this.countries=this.service.getCountries();
   }
    onSelect(country: Country): void {
-      this.pays.name = country.name;
+      if(this.pays) {
+        this.pays.name = country?.name;
+      } else {
+        this.handleError ("Erreur : pays vide, veuillez sélécionner un pays");
+      }
     }
+    handleError (err) {
+        alert(err);
+      }
 }

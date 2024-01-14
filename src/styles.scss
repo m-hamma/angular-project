@@ -50,3 +50,14 @@ button:disabled {
   height: 200px;
   border: 3px solid green;
 }
+/* You can add global styles to this file, and also import other style files */
+.app-container {
+    min-height: 320px;
+    overflow: hidden;
+}
+
+.btn-delete-user {
+    width: 40px;
+    text-align: center;
+    box-sizing: content-box;
+}
