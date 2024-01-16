@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter  } from '@angular/core';
+import { Component, Input,signal, Output, EventEmitter  } from '@angular/core';
 import { Hero } from '../interfaces/hero';
 import {FormsModule} from '@angular/forms';
 import {
