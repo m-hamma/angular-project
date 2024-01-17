@@ -1,4 +1,5 @@
-import { Component,signal,computed  } from '@angular/core';
+import { Component,signal,computed,inject  } from '@angular/core';
+import {CounterService} from '@app/_services';
 
 @Component({
   selector: 'app-cart',
@@ -7,6 +8,8 @@ import { Component,signal,computed  } from '@angular/core';
 })
 export class CartComponent {
   items = [    { name: 'Product A', price: 10 },    { name: 'Product B', price: 15 },    { name: 'Product C', price: 20 },  ];
+  private readonly service = inject(CounterService);
+  counter = this.service.count;
 
   // Define a signal for the list of items
   itemList = signal(this.items);
@@ -20,4 +23,5 @@ export class CartComponent {
     // Update the itemList signal by removing the selected item
     this.itemList.set(this.itemList().filter((i) => i !== item));
   }
+
 }
