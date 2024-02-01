@@ -1,14 +1,18 @@
-﻿import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, materialize, dematerialize } from 'rxjs/operators';
-
+import { AccountService, AlertService } from '@app/_services';
 // array in local storage for registered users
 const usersKey = 'angular-14-registration-login-example-users';
 let users: any[] = JSON.parse(localStorage.getItem(usersKey)!) || [];
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class FakeBackendInterceptor implements HttpInterceptor {
+
+    constructor(
+            private accountService: AccountService
+        ) { }
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const { url, method, headers, body } = request;
 
@@ -20,7 +24,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                     return authenticate();
                 case url.endsWith('/users/register') && method === 'POST':
                     return register();
-                case url.endsWith('/users') && method === 'GET':
+                case url.endsWith('/usersd') && method === 'GET':
                     return getUsers();
                 case url.match(/\/users\/\d+$/) && method === 'GET':
                     return getUserById();
@@ -31,7 +35,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 default:
                     // pass through any requests not handled above
                     return next.handle(request);
-            }    
+            }
         }
 
         // route functions
@@ -61,7 +65,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
         function getUsers() {
             if (!isLoggedIn()) return unauthorized();
-            return ok(users.map(x => basicDetails(x)));
+            //return ok(users.map(x => basicDetails(x)));
+            return this.accountService.getAll();
         }
 
         function getUserById() {

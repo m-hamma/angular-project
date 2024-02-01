@@ -10,4 +10,11 @@ export class HomeComponent {
     constructor(private accountService: AccountService) {
         this.user = this.accountService.userValue;
     }
+
+    afficher () {
+    const a = 5;
+    const b = 7;
+
+
+    }
 }

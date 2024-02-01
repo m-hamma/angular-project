@@ -46,7 +46,12 @@ export class AccountService {
     }
 
     getAll() {
-        return this.http.get<User[]>(`${environment.apiUrl}/users`);
+       try{
+           return this.http.get<User[]>(`${environment.apiUrl}/users`);
+        } catch (error) {
+              console.log('api discover failed ', error);
+              throw new Error('failed to discover the api.');
+        }
     }
 
     getById(id: string) {
@@ -57,7 +62,7 @@ export class AccountService {
         return this.http.put(`${environment.apiUrl}/users/${id}`, params)
             .pipe(map(x => {
                 // update stored user if the logged in user updated their own record
-                if (id == this.userValue?.id) {
+                if (id == this.userValue?.idUser) {
                     // update local storage
                     const user = { ...this.userValue, ...params };
                     localStorage.setItem('user', JSON.stringify(user));
@@ -73,7 +78,7 @@ export class AccountService {
         return this.http.delete(`${environment.apiUrl}/users/${id}`)
             .pipe(map(x => {
                 // auto logout if the logged in user deleted their own record
-                if (id == this.userValue?.id) {
+                if (id == this.userValue?.idUser) {
                     this.logout();
                 }
                 return x;
