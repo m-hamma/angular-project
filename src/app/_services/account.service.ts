@@ -24,8 +24,8 @@ export class AccountService {
         return this.userSubject.value;
     }
 
-    login(username: string, password: string) {
-        return this.http.post<User>(`${environment.apiUrl}/users/authenticate`, { username, password })
+    login(login: string, password: string) {
+        return this.http.post<User>(`${environment.apiUrl}/api/authenticate`, { login, password })
             .pipe(map(user => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('user', JSON.stringify(user));
@@ -47,7 +47,7 @@ export class AccountService {
 
     getAll() {
        try{
-           return this.http.get<User[]>(`${environment.apiUrl}/users`);
+           return this.http.get<User[]>(`${environment.apiUrl}/api/users`);
         } catch (error) {
               console.log('api discover failed ', error);
               throw new Error('failed to discover the api.');
