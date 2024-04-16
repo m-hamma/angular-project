@@ -18,6 +18,7 @@ import { fakeBackendProvider } from '@app/_helpers/fake-backend';
 import { CartComponent } from './cart/cart.component';
 import { AgeComponent } from './age/age.component';
 import { PhysiqueComponent } from './physique/physique.component';
+import { HistoireComponent } from './histoire/histoire.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +27,7 @@ import { PhysiqueComponent } from './physique/physique.component';
     CartComponent,
     AgeComponent,
     PhysiqueComponent,
+    HistoireComponent,
   ],
   imports: [
     BrowserModule,
