@@ -17,6 +17,7 @@ import {AlertComponent} from './account/alert';
 import { fakeBackendProvider } from '@app/_helpers/fake-backend';
 import { CartComponent } from './cart/cart.component';
 import { AgeComponent } from './age/age.component';
+import { PhysiqueComponent } from './physique/physique.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +25,7 @@ import { AgeComponent } from './age/age.component';
     HomeComponent,
     CartComponent,
     AgeComponent,
+    PhysiqueComponent,
   ],
   imports: [
     BrowserModule,
