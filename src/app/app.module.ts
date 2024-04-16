@@ -16,12 +16,14 @@ import {AlertComponent} from './account/alert';
 // used to create fake backend
 import { fakeBackendProvider } from '@app/_helpers/fake-backend';
 import { CartComponent } from './cart/cart.component';
+import { AgeComponent } from './age/age.component';
 @NgModule({
   declarations: [
     AppComponent,
     PaysDirective,
     HomeComponent,
     CartComponent,
+    AgeComponent,
   ],
   imports: [
     BrowserModule,
